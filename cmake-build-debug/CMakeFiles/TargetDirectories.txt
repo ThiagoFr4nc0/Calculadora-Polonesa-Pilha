@@ -1,0 +1,3 @@
+/home/squads/Trabalhos IF/Calculadora-Pilha/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/squads/Trabalhos IF/Calculadora-Pilha/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/squads/Trabalhos IF/Calculadora-Pilha/cmake-build-debug/CMakeFiles/Calculadora_Pilha.dir

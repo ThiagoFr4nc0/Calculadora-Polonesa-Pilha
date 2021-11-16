@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/squads/Trabalhos IF/Calculadora-Pilha/main.c
+stdio.h
+-
+utilitarios.h
+/home/squads/Trabalhos IF/Calculadora-Pilha/utilitarios.h
+pilha.h
+/home/squads/Trabalhos IF/Calculadora-Pilha/pilha.h
+
+/home/squads/Trabalhos IF/Calculadora-Pilha/pilha.h
+stdbool.h
+-
+
+/home/squads/Trabalhos IF/Calculadora-Pilha/utilitarios.h
+stdbool.h
+-
+

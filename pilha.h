@@ -4,7 +4,7 @@
 #define CALCULADORA_PILHA_PILHA_H
 #include <stdbool.h>
 
-typedef char TIPO_DADO;
+typedef int TIPO_DADO;
 
 typedef struct st_no_pilha
 {

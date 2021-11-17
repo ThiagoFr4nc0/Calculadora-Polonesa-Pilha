@@ -68,6 +68,7 @@ ERRO_PILHA pilha_PEEK (PILHA *pilha, TIPO_DADO *dado)
     if (dado != NULL)
     {
         *dado = (*pilha)->dado;
+        printf("%d",*dado);
     }
     return ERRO_SUCESSO;
 

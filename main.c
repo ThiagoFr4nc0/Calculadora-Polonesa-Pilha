@@ -40,14 +40,16 @@ int main() {
             if (pilha_TROCA(&p , &dado) != ERRO_UNDERFLOW)
             {
                 printf("@");
-                x = *dado;
+
             }
+            x = dado;
             if (pilha_TROCA(&p , &dado)!= ERRO_UNDERFLOW) {
-                y = *dado;
+
                 printf("#");
             }
-            pilha_PUSH(&p , &y);
+            y = dado;
             pilha_PUSH(&p , &x);
+            pilha_PUSH(&p , &y);
             printf("troca");
         }
         if(strcmp(aux, "d") == 0){

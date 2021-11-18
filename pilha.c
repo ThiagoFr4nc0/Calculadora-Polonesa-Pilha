@@ -61,14 +61,58 @@ ERRO_PILHA pilha_POP (PILHA *pilha, TIPO_DADO *dado)
 
 ERRO_PILHA pilha_PEEK (PILHA *pilha, TIPO_DADO *dado)
 {
+    PILHA aux, ant;
+
+    aux = *pilha;
+    ant = NULL;
     if (*pilha == NULL) // vazia
     {
         return ERRO_UNDERFLOW;
     }
-    if (dado != NULL)
+    while (aux != NULL)
     {
-        *dado = (*pilha)->dado;
-        printf("%d",*dado);
+        ant = aux;
+        aux = aux->sucessor;
+        printf("%d \n",*ant);
+    }
+    return ERRO_SUCESSO;
+
+}
+ERRO_PILHA pilha_TROCA (PILHA *pilha, TIPO_DADO *dado)
+{
+    PILHA aux, ant ;
+
+    aux = *pilha;
+    ant = NULL;
+    if (*pilha == NULL) // vazia
+    {
+        return ERRO_UNDERFLOW;
+    }
+    while (ant == NULL)
+    {
+        ant = aux;
+        aux = aux->sucessor;
+        printf("%d \n",*ant);
+    }
+
+
+    return ERRO_SUCESSO;
+}
+ERRO_PILHA pilha_OPERACAO (PILHA *pilha, TIPO_DADO *dado)
+{
+    PILHA aux, ant;
+
+    aux = *pilha;
+    ant = NULL;
+    if (*pilha == NULL) // vazia
+    {
+        return ERRO_UNDERFLOW;
+    }
+    while (aux != NULL)
+    {
+        ant = aux;
+        aux = aux->sucessor;
+        printf("%d \n",*ant);
     }
     return ERRO_SUCESSO;
 

@@ -6,15 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/squads/Trabalhos IF/Calculadora-Pilha/main.c
-stdio.h
+/home/squads/Trabalhos IF/Calculadora-Pilha/pilha.c
+stdlib.h
 -
-string.h
--
-utilitarios.h
-/home/squads/Trabalhos IF/Calculadora-Pilha/utilitarios.h
 pilha.h
 /home/squads/Trabalhos IF/Calculadora-Pilha/pilha.h
+utilitarios.h
+/home/squads/Trabalhos IF/Calculadora-Pilha/utilitarios.h
 
 /home/squads/Trabalhos IF/Calculadora-Pilha/pilha.h
 stdbool.h

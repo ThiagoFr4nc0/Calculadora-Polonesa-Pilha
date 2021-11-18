@@ -15,11 +15,11 @@ int main() {
     printf("================================\n");
     putchar('\n');
     printf(" Digite os operandos e tecle [Enter]\n");
-    printf("  Os operadores validos sao +, -, * e /\n"); //pilha_pop
-    printf("  q :sai\n");//exit
-    printf("  l :exibe a pilha\n");//pilha_peek
-    printf("  s :troca o topo com o elemento anterior\n");//pilha switch
-    printf("  d :descarta topo\n");//pilha_pop
+    printf("  Os operadores validos sao +, -, * e /\n"); //pilha_pop /
+    printf("  q :sai\n");//exit x
+    printf("  l :exibe a pilha\n");//pilha_peek x
+    printf("  s :troca o topo com o elemento anterior\n");//pilha switch /
+    printf("  d :descarta topo\n");//pilha_pop x
     putchar('\n');
     do
     {
@@ -37,6 +37,10 @@ int main() {
             printf("lista");
         }
         if(strcmp(aux, "s") == 0){
+            if (pilha_TROCA(&p , &dado) != ERRO_UNDERFLOW)
+            {
+                printf("//",dado);
+            }
             printf("troca");
         }
         if(strcmp(aux, "d") == 0){
@@ -49,6 +53,10 @@ int main() {
         }
         //opareção
         if(strcmp(aux, "+") == 0|| strcmp(aux, "-") == 0|| strcmp(aux, "*") == 0|| strcmp(aux, "/") == 0){
+            if (pilha_OPERACAO(&p , &dado) != ERRO_UNDERFLOW)
+            {
+                printf("//",dado);
+            }
             printf("!\n");
         }
         //pilha_push

@@ -6,7 +6,7 @@
 int main() {
     PILHA p;
     char aux[50];
-    int dado;
+    int *dado , *x , *y;
 
     pilha_inicializar(&p);
 
@@ -39,8 +39,15 @@ int main() {
         if(strcmp(aux, "s") == 0){
             if (pilha_TROCA(&p , &dado) != ERRO_UNDERFLOW)
             {
-                printf("//",dado);
+                printf("@");
+                x = *dado;
             }
+            if (pilha_TROCA(&p , &dado)!= ERRO_UNDERFLOW) {
+                y = *dado;
+                printf("#");
+            }
+            pilha_PUSH(&p , &y);
+            pilha_PUSH(&p , &x);
             printf("troca");
         }
         if(strcmp(aux, "d") == 0){
@@ -55,7 +62,9 @@ int main() {
         if(strcmp(aux, "+") == 0|| strcmp(aux, "-") == 0|| strcmp(aux, "*") == 0|| strcmp(aux, "/") == 0){
             if (pilha_OPERACAO(&p , &dado) != ERRO_UNDERFLOW)
             {
-                printf("//",dado);
+                printf("//");
+                pilha_PUSH(&p , &dado);
+                printf("%d",dado);
             }
             printf("!\n");
         }

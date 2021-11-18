@@ -80,42 +80,62 @@ ERRO_PILHA pilha_PEEK (PILHA *pilha, TIPO_DADO *dado)
 }
 ERRO_PILHA pilha_TROCA (PILHA *pilha, TIPO_DADO *dado)
 {
-    PILHA aux, ant ;
+    PILHA aux;
+
 
     aux = *pilha;
-    ant = NULL;
-    if (*pilha == NULL) // vazia
+    if (aux == NULL) // pilha vazia
     {
         return ERRO_UNDERFLOW;
     }
-    while (ant == NULL)
+    *pilha = aux->sucessor;
+    if (dado != NULL)
     {
-        ant = aux;
-        aux = aux->sucessor;
-        printf("%d \n",*ant);
+        *dado = aux->dado;
     }
+    free(aux);
 
 
     return ERRO_SUCESSO;
+
 }
-ERRO_PILHA pilha_OPERACAO (PILHA *pilha, TIPO_DADO *dado)
+ERRO_PILHA pilha_OPERACAO (PILHA *pilha, TIPO_DADO *dado )
 {
-    PILHA aux, ant;
+    PILHA aux;
+    int x , y;
 
     aux = *pilha;
-    ant = NULL;
-    if (*pilha == NULL) // vazia
+    if (aux == NULL) // pilha vazia
     {
         return ERRO_UNDERFLOW;
     }
-    while (aux != NULL)
+    *pilha = aux->sucessor;
+    if (dado != NULL)
     {
-        ant = aux;
-        aux = aux->sucessor;
-        printf("%d \n",*ant);
+        *dado = aux->dado;
+        x = *dado;
     }
-    return ERRO_SUCESSO;
+    free(aux);
+    aux = *pilha;
+    if (aux == NULL) // pilha vazia
+    {
+        return ERRO_UNDERFLOW;
+    }
+    *pilha = aux->sucessor;
+    if (dado != NULL)
+    {
+        *dado = aux->dado;
+        y = *dado;
+    }
+    free(aux);
 
+    printf("%d",x);
+    printf("%d",y);
+    *dado = x + y;
+    *dado = x - y;
+    *dado = x * y;
+    *dado = x / y;
+    return ERRO_SUCESSO;
 }
 
 bool pilha_esta_cheia(const PILHA *pilha)

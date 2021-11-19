@@ -15,10 +15,10 @@ int main() {
     printf("================================\n");
     putchar('\n');
     printf(" Digite os operandos e tecle [Enter]\n");
-    printf("  Os operadores validos sao +, -, * e /\n"); //pilha_pop /
+    printf("  Os operadores validos sao +, -, * e /\n"); //pilha_pop x
     printf("  q :sai\n");//exit x
     printf("  l :exibe a pilha\n");//pilha_peek x
-    printf("  s :troca o topo com o elemento anterior\n");//pilha switch /
+    printf("  s :troca o topo com o elemento anterior\n");//pilha switch x
     printf("  d :descarta topo\n");//pilha_pop x
     putchar('\n');
     do
@@ -46,11 +46,12 @@ int main() {
             if (pilha_TROCA(&p , &dado)!= ERRO_UNDERFLOW) {
 
                 printf("#");
+                y = dado;
+                pilha_PUSH(&p , &x);
+                pilha_PUSH(&p , &y);
+                printf("troca");
             }
-            y = dado;
-            pilha_PUSH(&p , &x);
-            pilha_PUSH(&p , &y);
-            printf("troca");
+
         }
         if(strcmp(aux, "d") == 0){
             if (pilha_POP(&p , &dado) != ERRO_UNDERFLOW)
@@ -61,8 +62,35 @@ int main() {
             printf("deleta topo");
         }
         //opareção
-        if(strcmp(aux, "+") == 0|| strcmp(aux, "-") == 0|| strcmp(aux, "*") == 0|| strcmp(aux, "/") == 0){
-            if (pilha_OPERACAO(&p , &dado) != ERRO_UNDERFLOW)
+        if(strcmp(aux, "+") == 0){
+            if (pilha_OPERACAO(&p , &dado ,SUM) != ERRO_UNDERFLOW)
+            {
+                printf("//");
+                pilha_PUSH(&p , &dado);
+                printf("%d",dado);
+            }
+            printf("!\n");
+        }
+        if(strcmp(aux, "-") == 0){
+            if (pilha_OPERACAO(&p , &dado ,SUB) != ERRO_UNDERFLOW)
+            {
+                printf("//");
+                pilha_PUSH(&p , &dado);
+                printf("%d",dado);
+            }
+            printf("!\n");
+        }
+        if(strcmp(aux, "*") == 0){
+            if (pilha_OPERACAO(&p , &dado ,MULT) != ERRO_UNDERFLOW)
+            {
+                printf("//");
+                pilha_PUSH(&p , &dado);
+                printf("%d",dado);
+            }
+            printf("!\n");
+        }
+        if(strcmp(aux, "/") == 0){
+            if (pilha_OPERACAO(&p , &dado ,DIV) != ERRO_UNDERFLOW)
             {
                 printf("//");
                 pilha_PUSH(&p , &dado);

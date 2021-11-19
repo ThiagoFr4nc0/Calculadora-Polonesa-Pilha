@@ -99,7 +99,7 @@ ERRO_PILHA pilha_TROCA (PILHA *pilha, TIPO_DADO *dado)
     return ERRO_SUCESSO;
 
 }
-ERRO_PILHA pilha_OPERACAO (PILHA *pilha, TIPO_DADO *dado )
+ERRO_PILHA pilha_OPERACAO (PILHA *pilha, TIPO_DADO *dado ,CRITERIO opcao )
 {
     PILHA aux;
     int x , y;
@@ -129,12 +129,24 @@ ERRO_PILHA pilha_OPERACAO (PILHA *pilha, TIPO_DADO *dado )
     }
     free(aux);
 
+    switch (opcao)
+    {
+        case SUM:
+            *dado = x + y;
+            break;
+        case SUB:
+            *dado = x - y;
+            break;
+        case MULT:
+            *dado = x * y;
+            break;
+        case DIV:
+            *dado = x / y;
+            break;
+    }
     printf("%d",x);
     printf("%d",y);
-    *dado = x + y;
-    *dado = x - y;
-    *dado = x * y;
-    *dado = x / y;
+
     return ERRO_SUCESSO;
 }
 

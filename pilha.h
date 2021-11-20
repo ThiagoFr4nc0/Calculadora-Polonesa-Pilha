@@ -34,7 +34,6 @@ ERRO_PILHA pilha_destruir (PILHA *pilha);
 ERRO_PILHA pilha_PUSH (PILHA *pilha, const TIPO_DADO *dado);
 ERRO_PILHA pilha_POP (PILHA *pilha, TIPO_DADO *dado);
 ERRO_PILHA pilha_PEEK (PILHA *pilha, TIPO_DADO *dado);
-ERRO_PILHA pilha_TROCA (PILHA *pilha, TIPO_DADO *dado);
 ERRO_PILHA pilha_OPERACAO (PILHA *pilha, TIPO_DADO *dado , CRITERIO opcao);
 bool pilha_esta_cheia(const PILHA *pilha);
 bool pilha_esta_vazia(const PILHA *pilha);

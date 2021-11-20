@@ -78,44 +78,25 @@ ERRO_PILHA pilha_PEEK (PILHA *pilha, TIPO_DADO *dado)
     return ERRO_SUCESSO;
 
 }
-ERRO_PILHA pilha_TROCA (PILHA *pilha, TIPO_DADO *dado)
-{
-    PILHA aux;
 
-
-    aux = *pilha;
-    if (aux == NULL) // pilha vazia
-    {
-        return ERRO_UNDERFLOW;
-    }
-    *pilha = aux->sucessor;
-    if (dado != NULL)
-    {
-        *dado = aux->dado;
-    }
-    free(aux);
-
-
-    return ERRO_SUCESSO;
-
-}
 ERRO_PILHA pilha_OPERACAO (PILHA *pilha, TIPO_DADO *dado ,CRITERIO opcao )
 {
-    PILHA aux;
+    PILHA aux,ant;
     int x , y;
 
     aux = *pilha;
-    if (aux == NULL) // pilha vazia
+    ant = *pilha;
+
+    if (ant == NULL) // pilha vazia
     {
         return ERRO_UNDERFLOW;
     }
-    *pilha = aux->sucessor;
+    *pilha = ant->sucessor;
     if (dado != NULL)
     {
-        *dado = aux->dado;
+        *dado = ant->dado;
         x = *dado;
     }
-    free(aux);
     aux = *pilha;
     if (aux == NULL) // pilha vazia
     {
@@ -127,8 +108,10 @@ ERRO_PILHA pilha_OPERACAO (PILHA *pilha, TIPO_DADO *dado ,CRITERIO opcao )
         *dado = aux->dado;
         y = *dado;
     }
-    free(aux);
-
+    if(ant != NULL || aux != NULL) {
+        free(ant);
+        free(aux);
+    }
     switch (opcao)
     {
         case SUM:
@@ -144,9 +127,6 @@ ERRO_PILHA pilha_OPERACAO (PILHA *pilha, TIPO_DADO *dado ,CRITERIO opcao )
             *dado = x / y;
             break;
     }
-    printf("%d",x);
-    printf("%d",y);
-
     return ERRO_SUCESSO;
 }
 

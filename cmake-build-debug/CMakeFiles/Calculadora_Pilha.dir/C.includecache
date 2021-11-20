@@ -11,6 +11,8 @@ stdio.h
 -
 string.h
 -
+stdlib.h
+-
 utilitarios.h
 /home/squads/Trabalhos IF/Calculadora-Pilha/utilitarios.h
 pilha.h

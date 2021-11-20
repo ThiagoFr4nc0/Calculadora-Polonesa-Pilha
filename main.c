@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "utilitarios.h"
 #include "pilha.h"
 
 int main() {
     PILHA p;
-    char aux[50];
-    int *dado , *x , *y;
+    char aux[100];
+    int *dado , *x , *y ;
 
     pilha_inicializar(&p);
 
@@ -23,87 +24,92 @@ int main() {
     putchar('\n');
     do
     {
-        while(!ler_String(&aux, "", 50));
+        while(!ler_String(&aux, "", 100));
 
         //comandos
         if(strcmp(aux, "q") == 0){
-            printf("tchau!");
+            if (pilha_PEEK(&p , &dado) != ERRO_UNDERFLOW)
+            {
+                printf("tchau!");
+            }
         }
         if(strcmp(aux, "l") == 0){
             if (pilha_PEEK(&p , &dado) != ERRO_UNDERFLOW)
             {
-                printf("//",dado);
+                printf("lista\n");
+                continue;
             }
-            printf("lista");
+            printf("Pilha está vazia\n");
         }
         if(strcmp(aux, "s") == 0){
-            if (pilha_TROCA(&p , &dado) != ERRO_UNDERFLOW)
-            {
-                printf("@");
+            if (pilha_POP(&p , &dado) != ERRO_UNDERFLOW) {
+                x = dado;
 
-            }
-            x = dado;
-            if (pilha_TROCA(&p , &dado)!= ERRO_UNDERFLOW) {
-
-                printf("#");
+            if (pilha_POP(&p , &dado) != ERRO_UNDERFLOW) {
                 y = dado;
                 pilha_PUSH(&p , &x);
                 pilha_PUSH(&p , &y);
-                printf("troca");
+                printf("troca\n");
+                continue;
             }
 
+
+            }
+
+            printf("Pilha está vazia\n");
         }
         if(strcmp(aux, "d") == 0){
             if (pilha_POP(&p , &dado) != ERRO_UNDERFLOW)
             {
-                printf("%s/",aux);
-                printf("%d",dado);
+                printf("%d-",dado);
+                printf("deleta topo\n");
+                continue;
             }
-            printf("deleta topo");
+            printf("Pilha está vazia\n");
         }
         //opareção
         if(strcmp(aux, "+") == 0){
             if (pilha_OPERACAO(&p , &dado ,SUM) != ERRO_UNDERFLOW)
             {
-                printf("//");
                 pilha_PUSH(&p , &dado);
-                printf("%d",dado);
+                printf("%d\n",dado);
+                continue;
             }
-            printf("!\n");
+            printf("falta operador!\n");
         }
         if(strcmp(aux, "-") == 0){
             if (pilha_OPERACAO(&p , &dado ,SUB) != ERRO_UNDERFLOW)
             {
-                printf("//");
                 pilha_PUSH(&p , &dado);
-                printf("%d",dado);
+                printf("%d\n",dado);
+                continue;
             }
-            printf("!\n");
+            printf("falta operador!\n");
         }
         if(strcmp(aux, "*") == 0){
             if (pilha_OPERACAO(&p , &dado ,MULT) != ERRO_UNDERFLOW)
             {
-                printf("//");
                 pilha_PUSH(&p , &dado);
-                printf("%d",dado);
+                printf("%d\n",dado);
+                continue;
             }
-            printf("!\n");
+            printf("falta operador!\n");
         }
         if(strcmp(aux, "/") == 0){
             if (pilha_OPERACAO(&p , &dado ,DIV) != ERRO_UNDERFLOW)
             {
-                printf("//");
                 pilha_PUSH(&p , &dado);
-                printf("%d",dado);
+                printf("%d\n",dado);
+                continue;
             }
-            printf("!\n");
+            printf("falta operador!\n");
         }
         //pilha_push
         dado = atoi(aux);
+
         if(dado < 0 || dado > 0){
             if (pilha_PUSH(&p , &dado) != ERRO_UNDERFLOW) {
-                printf("%s/", aux);
-                printf("%d", dado);
+                printf("%d\n", dado);
             }
         }
     } while (strcmp(aux, "q") != 0);

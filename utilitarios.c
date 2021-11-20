@@ -37,7 +37,7 @@ bool ler_Inteiro(long int *iLongo,
 bool ler_String(char *buffer, const char *prompt, int tamanho)
 {
     if (prompt != NULL)
-        printf("%s==> ", prompt, tamanho);
+        printf("%s > ", prompt, tamanho);
 
     memset(buffer, 0, tamanho);
     fgets(buffer, tamanho, stdin);

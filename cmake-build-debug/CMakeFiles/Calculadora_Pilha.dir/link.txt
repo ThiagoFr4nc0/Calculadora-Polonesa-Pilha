@@ -1,1 +1,0 @@
-/usr/bin/cc -g CMakeFiles/Calculadora_Pilha.dir/main.c.o CMakeFiles/Calculadora_Pilha.dir/utilitarios.c.o CMakeFiles/Calculadora_Pilha.dir/pilha.c.o -o Calculadora_Pilha 
